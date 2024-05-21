@@ -1,0 +1,106 @@
+# Training Settings
+base_path:
+  value: "/local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/"
+  help: "base directory of your data"
+
+num_frames:
+  value: 200
+  help: "Duration of the input segments, eg: 200 for 2 second"
+
+max_epoch:
+  value: 200
+  help: "Maximum number of epochs"
+
+batch_size:
+  value: 32
+  help: "Batch size"
+
+n_cpu:
+  value: 8
+  help: "Number of loader threads"
+
+test_step:
+  value: 1
+  help: "Test and save every [test_step] epochs"
+
+lr:
+  value: 0.001
+  help: "Learning rate"
+
+lr_decay:
+  value: 0.97
+  help: "Learning rate decay every [test_step] epochs"
+
+
+# Training and evaluation path/lists, save path
+
+train_list:
+  help: "All paths to training list"
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/voxceleb2/train_list.txt.edited
+
+
+train_path:
+  help: "Directory to training data where speaker audio are stored"
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/voxceleb2/wav
+
+
+eval_list:
+  help: "All paths to evaluation list"
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/voxceleb1/veri_test2.txt.edited
+
+
+eval_path:
+  help: "All paths to evaluation data"
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/voxceleb1/wav
+
+
+musan_path:
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/musan_split
+  help: 'The path to the MUSAN set, eg:"data/musan_split" in my case'
+
+rir_path:
+  value: /local_disk/helios/mmlamah/projects/kiwano-project/recipes/resnet/db/rirs_noises/RIRS_NOISES/simulated_rirs
+  help: 'The path to the RIR set, eg:"data/RIRS_NOISES/simulated_rirs" in my case'
+
+save_path:
+  value: exps/exp_nas_search_voxceleb
+  help: "Path to save the score.txt and models"
+
+initial_model:
+  value: ""
+  help: |
+    Path of the initial_model
+    exps/exp_resnet5/model/model_0080.model
+    exps/exp_resnet5/model/best.model
+
+# Model and Loss settings
+C:
+  value: 16
+  help: "Init channel size"
+
+m:
+  value: 0.2
+  help: "Loss margin in AAM softmax"
+
+s:
+  value: 30
+  help: "Loss scale in AAM softmax"
+
+n_class:
+  help: "Number of speakers"
+  value: 5994
+
+n_layers:
+  value: 8
+  help: "Number of layers for cell"
+
+drop_proba:
+  value: 0.2
+  help: "Proba droping layer"
+    
+
+# Command
+eval:
+  value: false
+  help: "Only do evaluation"
+
